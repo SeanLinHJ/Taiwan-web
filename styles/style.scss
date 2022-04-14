@@ -1,0 +1,41 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+/* nested CSS 可以統整一起寫，在生成的 css 檔中會自動換成 CSS 格式 */
+header {
+  background-color: aqua;
+  h1 {
+    color: red;
+  }
+}
+
+/* variables 自訂變數 $變數名稱: CSS內容 */
+$name: green;
+
+h2 {
+  color: $name;
+}
+
+/* self 使用 & 來表示自己的標籤 */
+h3 {
+  background-color: yellow;
+  &:hover {
+    background-color: blue;
+  }
+}
+
+/* import 如同 Python，可以套用、重複利用別的 CSS 設定 (接受的檔案名: _檔名.scss) */
+@import "./style2";
+
+/* mixin 相當於 function 的功能，使用 @mixin 創建函式，其中可以放入參數 ($name)，@include 來呼叫函式 */
+@mixin functionName($para) {
+  display: flex;
+  flex-direction: $para;
+}
+
+main {
+  @include functionName(column);
+}

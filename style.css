@@ -1,0 +1,101 @@
+/* 先把所有標籤自有的留白去除，文字就可以貼其網頁邊緣，以及設定 box-sizing */
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box; /* 固定寬度，避免設定 padding 時超過連覽器寬 */
+  font-family: "Noto Serif TC", serif;
+}
+header {
+  background-color: #c4c4c4;
+  padding: 1rem;
+  width: 100%;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+header h1 {
+  font-size: 2.6rem;
+}
+header h3 {
+  font-size: 1.2rem;
+}
+nav {
+  background-color: #534b4b;
+}
+nav ul {
+  display: flex;
+  list-style-type: none; /* 去除 li 前方的點 */
+  padding-left: 1rem;
+}
+nav ul li {
+  /*padding: 0.5rem 2rem;*/ /* 可按連結的範圍只在字上 */
+  display: flex; /* 可將整個 li 便區塊，就可以在非文字的地方也可以連結網址 */
+}
+/* 用來顯示當前導覽列在哪一個頁面 */
+.active {
+  color: rgb(7, 255, 234);
+}
+nav ul li a {
+  padding: 0.5rem 2rem;
+  text-decoration: none;
+  color: white;
+  font-size: 1.1rem;
+  transition: all 0.3s ease; /* 延長變色的時間 */
+}
+nav ul li a:hover {
+  color: rgb(7, 255, 234);
+}
+main.mainPage {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+section {
+  padding: 1.6rem;
+}
+section.descript {
+  flex-grow: 2;
+  flex-basis: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#curve_chart {
+  width: 70%;
+  height: 60%;
+}
+section.knowledge {
+  flex: 1 1 300px;
+  display: flex;
+  flex-direction: column;
+  background-color: #d9d9d9;
+  align-items: center;
+}
+section.knowledge p {
+  padding-top: 1rem;
+}
+.map {
+  border-radius: 20px;
+}
+
+@media screen and (max-width: 600px) {
+  nav ul {
+    flex-direction: column;
+  }
+  section {
+    width: 80%;
+  }
+  .map {
+    width: 90%;
+    height: 300px;
+  }
+  #curve_chart {
+    width: 100%;
+    height: 60%;
+  }
+}
